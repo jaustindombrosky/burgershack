@@ -31,27 +31,22 @@ var orm = {
         day = '0' + day;
       }
     timestamp += day + ' ';
-    var hour = '' + d.getHours(); // must be string
-      // handle 1 digit hour
+    var hour = '' + d.getHours();
       if(hour.length == 1){
         hour = '0' + hour;
       }
     timestamp += hour + ':';
-    var minute = '' + d.getMinutes(); // must be string
-      // handle 1 digit minute
+    var minute = '' + d.getMinutes();
       if(minute.length == 1){
         minute = '0' + minute;
       }
     timestamp += minute + ':';
-    var second = '' + d.getSeconds(); // must be string
-      // handle 1 digit second
+    var second = '' + d.getSeconds();
       if(second.length == 1){
         second = '0' + second;
       }
     timestamp += second;
-    // ----------------------------------------------------------
-
-    // Run MySQL Query
+    // MYSQL QUERY
     connection.query('INSERT INTO burgers SET ?', {
       burger_name: burger_name,
       devoured: false,
@@ -60,20 +55,13 @@ var orm = {
       if (err) throw err;
       callback(result);
     });
-
   },
-
-  // updateOne()
   updateOne: function(burgerID, callback){
-
-    // Run MySQL Query
+    // MYSQL QUERY
     connection.query('UPDATE burgers SET ? WHERE ?', [{devoured: true}, {id: burgerID}], function (err, result) {
         if (err) throw err;
         callback(result);
       });
-
   }
-
 };
-
 module.exports = orm;
