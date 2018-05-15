@@ -1,8 +1,7 @@
-// Node Dependency
+// NODE
 var mysql = require('mysql');
 var connection;
-
-// Heroko and MySql DB
+// HEROKU MYSQL
 if(process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
@@ -10,9 +9,8 @@ else{
   connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '', // Add your password
-    database : 'burgers_db' // Add your database
+    password : '',
+    database : 'burgerz'
   });
 }
-// Export the Connection
 module.exports = connection;

@@ -1,6 +1,5 @@
 var connection = require('./connection.js');
-
-// Connect to MySQL database
+// CONNECT
 connection.connect(function(err) {
   if (err) {
     console.error('error connecting: ' + err.stack);
@@ -8,8 +7,7 @@ connection.connect(function(err) {
   };
   console.log('connected as id ' + connection.threadId);
 });
-
-// Methods for MySQL commands
+// MYSQL COMMANDS
 var orm = {
   selectAll: function(callback) {
     connection.query('SELECT * FROM burgers', function (err, result) {
@@ -18,21 +16,17 @@ var orm = {
     });
 
   },
-  // insertOne()
+  // INSERT BURGER
   insertOne: function(burger_name, callback){
-
-    // Create a new timestamp
-    // ----------------------------------------------------------
+    // NEW TIMESTAMP
     var d = new Date();
-    var timestamp = ''+ d.getFullYear() + '-'; // must be string
-    var month = '' + (d.getMonth() + 1); // must be string
-      // handle 1 digit months
+    var timestamp = ''+ d.getFullYear() + '-';
+    var month = '' + (d.getMonth() + 1);
       if(month.length == 1){
         month = '0' + month;
       }
     timestamp += month + '-';
-    var day = '' + d.getDate(); // must be string
-      // handle 1 digit day of month
+    var day = '' + d.getDate();
       if(day.length == 1){
         day = '0' + day;
       }
