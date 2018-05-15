@@ -1,11 +1,10 @@
 <div class="row">
   <center>
-    <!-- Left side (ready to eat) -->
+    <!-- LEFT SIDE TO EAT -->
     <div class="col-md-6">
       <h4 class="red_font">Ready to eat!</h4>
       <div id="ready_to_eat">
-
-        <!-- Dynamically Insert Ready Burgers Here -->
+        <!-- PUT BURGERS HERE -->
         {{#each burgers}}
           {{#unless devoured}}
           <form action="burger/eat/{{id}}" method="POST">
@@ -18,11 +17,9 @@
           </form>
           {{/unless}}
         {{/each}}
-
       </div>
     </div>
-
-    <!-- Right side (already eaten) -->
+    <!-- RIGHT SIDE EATEN -->
     <div class="col-md-6">
       <h4 class="red_font">Already eaten!</h4>
       <div id="already_eaten">
@@ -37,7 +34,6 @@
             </div>
           {{/if}}
         {{/each}}
-
       </div>
     </div>
   </center>
